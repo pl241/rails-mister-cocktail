@@ -19,7 +19,8 @@ class DosesController < ApplicationController
     @dose = Dose.find(params[:id])
     @dose.destroy
 
-    redirect_to cocktails_path
+    #back to the cocktail show page associated with the deleted dose
+    redirect_to @dose.cocktail
   end
 
   private
