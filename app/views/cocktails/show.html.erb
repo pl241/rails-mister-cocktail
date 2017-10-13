@@ -4,7 +4,7 @@
     <h2><%= @cocktail.name %></h2>
   </div>
 
-  <div class="row">
+  <div class="row showpic">
     <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fit %>
   </div>
 
@@ -12,7 +12,7 @@
     <ul>
       <% @cocktail.doses.each do |dose| %>
         <div class="dose">
-          <li>Ingredient: <%= dose.ingredient.name %> | <%= dose.description %>
+          <li><%= dose.ingredient.name %> | <%= dose.description %>
           </li>
         </div>
       <% end %>
@@ -20,7 +20,7 @@
   </div>
 
   <div class="dose_bottom">
-    <%= link_to "Add dose", new_cocktail_dose_path(@cocktail) %>
+    <%= link_to "Add ingredient", new_cocktail_dose_path(@cocktail) %>
     <br>
     <br>
     <%= link_to "Back to all cocktails", cocktails_path %>

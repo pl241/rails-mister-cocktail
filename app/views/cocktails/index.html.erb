@@ -9,18 +9,16 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row thumb">
 
     <% @cocktails.each do |cocktail| %>
 
       <div class="col-xs-12 col-sm-6 col-md-4">
         <h3><%= cocktail.name %></h3>
-        <%= cl_image_tag cocktail.photo, height: 300, width: 400, crop: :fit %>
+          <%= link_to (cl_image_tag cocktail.photo, height: 300, width: 400, crop: :fit), cocktail_path(cocktail) %>
         <br>
         <br>
-        <p>
-          <%= link_to "More details", cocktail_path(cocktail) %>
-        </p>
+        <p></p>
       </div>
 
     <% end %>
