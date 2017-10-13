@@ -19,6 +19,9 @@
         <br>
         <br>
         <p>
+          <%= link_to "Ingredients", adminpl241_cocktail_path(cocktail) %>
+        </p>
+        <p>
           <%= link_to "delete", adminpl241_cocktail_path(cocktail), class: "delete",
             method: :delete,
             data: { confirm: "Are you sure?" } %>
