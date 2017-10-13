@@ -5,13 +5,19 @@
   </div>
 
   <div class="row">
+    <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fit %>
+  </div>
+
+  <div class="row">
     <ul>
       <% @cocktail.doses.each do |dose| %>
-        <li>Ingredient: <%= dose.ingredient.name %> | <%= dose.description %>
-          <%= link_to "delete", dose_path(dose),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-        </li>
+        <div class="dose">
+          <li>Ingredient: <%= dose.ingredient.name %> | <%= dose.description %>
+            <%= link_to "delete", dose_path(dose), class: "dose_delete",
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+          </li>
+        </div>
       <% end %>
     </ul>
   </div>

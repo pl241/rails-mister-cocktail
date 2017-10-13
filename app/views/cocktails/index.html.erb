@@ -8,12 +8,28 @@
   </div>
 
   <div class="row">
+
     <% @cocktails.each do |cocktail| %>
-      <h2><%= cocktail.name %></h2>
-      <%= link_to "More details", cocktail_path(cocktail) %>
-      <br>
-      <br>
+
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <h2><%= cocktail.name %></h2>
+        <%= cl_image_tag cocktail.photo, height: 300, width: 400, crop: :fit %>
+        <br>
+        <br>
+        <p>
+          <%= link_to "More details", cocktail_path(cocktail) %>
+          <%= link_to "delete", cocktail_path(cocktail), class: "delete",
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+        </p>
+      </div>
+
     <% end %>
   </div>
+
+  <!-- <div class="row">
+    <%= cl_image_tag("nzsjaa0himpvopo032vw",
+      width: 400, height: 300, crop: :fill) %>
+  </div> -->
 
 </div>
