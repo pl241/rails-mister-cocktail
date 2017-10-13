@@ -1,7 +1,7 @@
 
 <div class="container">
   <div class="row col-xs-12">
-    <h2><%= @cocktail.name %></h2>
+    <h2>Admin <%= @cocktail.name %></h2>
   </div>
 
   <div class="row">
@@ -14,15 +14,18 @@
         <div class="dose">
           <li>Ingredient: <%= dose.ingredient.name %> | <%= dose.description %>
           </li>
+            <%= link_to "delete", adminpl241_dose_path(dose), class: "dose_delete",
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
         </div>
       <% end %>
     </ul>
   </div>
 
   <div class="dose_bottom">
-    <%= link_to "Add dose", new_cocktail_dose_path(@cocktail) %>
+    <%= link_to "Add dose", new_adminpl241_cocktail_dose_path(@cocktail) %>
     <br>
     <br>
-    <%= link_to "Back to all cocktails", cocktails_path %>
+    <%= link_to "Back to all cocktails", adminpl241_cocktails_path %>
   </div>
 </div>

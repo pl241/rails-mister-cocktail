@@ -1,0 +1,35 @@
+class Adminpl241::DosesController < ApplicationController
+  before_action :set_cocktail, only: [:new, :create]
+
+  def new
+    @dose = Dose.new
+  end
+
+  def create
+    @dose = Dose.new(dose_params)
+    @dose.cocktail = @cocktail
+    if @dose.save
+      redirect_to adminpl241_cocktail_path(@cocktail)
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @dose = Dose.find(params[:id])
+    @dose.destroy
+
+    #back to the cocktail show page associated with the deleted dose
+    redirect_to adminpl241_cocktail_path(@dose.cocktail)
+    # redirect_to @dose.cocktail
+  end
+
+  private
+  def set_cocktail
+    @cocktail = Cocktail.find(params[:cocktail_id])
+  end
+
+  def dose_params
+    params.require(:dose).permit(:description, :ingredient_id)
+  end
+end

@@ -1,0 +1,16 @@
+<h1 class="text-center col-xs-12">Admin Post dose for <%= @cocktail.name %></h1>
+
+<div class="container">
+  <div class="row col-xs-12">
+    <!-- <div class="col-xs-12 col-sm-offset-3"> -->
+
+      <!-- do not use for @dose do in the form as this should be nested -->
+      <%= simple_form_for [:adminpl241, @cocktail, @dose] do |f| %>
+        <%= f.input :description, placeholder: "Description" %>
+        <%= f.association :ingredient %>
+        <%= f.submit "Post", class: "btn btn-primary" %>
+      <% end %>
+
+    <!-- </div> -->
+  </div>
+</div>
